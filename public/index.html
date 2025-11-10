@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P7 Project</title>
-    <link rel="stylesheet" href="/public/style.css">
+    <title>Find Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -15,11 +15,81 @@
 </head>
 <body>
     <header>
-        <custom-header></custom-header>
+        <button class="fast-exit" aria-label="Fast Exit">×</button>
+        <div class="pro-login">
+            <p>Here as a professional?</p>
+            <a href="#">Login to chat</a>
+        </div>
     </header>
-    
+
     <main>
-        <p>This is the main page of the P7 Project application.</p>
+        <section class="hero">
+            <h1>Find</h1>
+            <p class="subtitle">the info and support you are looking for</p>
+            <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search through articles, stories and supportive resources">
+                 <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources">
+            <h2>Highlighted resources</h2>
+            <div class="card-grid">
+                <a href="#" class="card professional-chat">
+                    <h3>Chat with a professional</h3>
+                    <p class="card-subtitle">Supportive resource</p>
+                    <div class="card-icon">
+                       <img src="icons/chat.svg" alt="Chat icon" width="48" height="48">
+                    </div>
+                    <!-- <p class="card-info">5 professionals online right now!</p> -->
+                </a>
+
+                <a href="#" class="card">
+                    <h3>What classifies violence?</h3>
+                    <p class="card-subtitle">Article</p>
+                    <div class="card-icon">
+                        <img src="icons/lightbulb.svg" alt="Lightbulb icon" width="48" height="48">
+                    </div>                        
+                </a>
+
+                <a href="#" class="card">
+                    <h3>What is psychological violence?</h3>
+                    <p class="card-subtitle">Article</p>
+                    <div class="card-icon">
+                       <img src="icons/head.svg" alt="Head icon" width="48" height="48">
+                    </div>
+                </a>
+
+                <a href="#" class="card">
+                    <h3>Laws about violence</h3>
+                    <p class="card-subtitle">Article</p>
+                    <div class="card-icon">
+                        <img src="icons/law.svg" alt="Law icon" width="48" height="48">
+                    </div>
+                </a>
+
+                <a href="#" class="card">
+                    <h3>How Karen broke free from partner violence</h3>
+                    <p class="card-subtitle">Story</p>
+                    <div class="card-icon">
+                        <img src="icons/hands.svg" alt="Hands icon" width="48" height="48">
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
+    <footer>
+        <div class="footer-exit-row">
+            <span class="footer-text">Fast exit in upper left corner or press ESC.</span>
+            <button class="fast-exit footer-exit" aria-label="Fast Exit">×</button>
+        </div>
+		<span class="footer-text">Call us at 71 77 94 26.</span>
+		<span class="footer-text">This page does not save anything about you.</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
