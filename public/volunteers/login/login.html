@@ -6,6 +6,7 @@
 	<meta name="Login" content="width=device-width, initial-scale=1.0">
 	<title>Login</title>
 	<link rel="stylesheet" href="login.css">
+    <script defer src="login.js"></script>
 </head>
 
 <ul class="nav-bar">
@@ -22,16 +23,14 @@
     <p class="title">Log in</p>
     <p class="subtitle">as a professional</p>
 
-    <div class="box">
+    <form action=login.js class="box" id="login-form">
         <p>Username</p>
-        <input type="username">
+        <input type="text" name="username" id="uname">
         <p>Password</p>
-        <input type="password">
+        <input type="password" name="password" id="pwd">
 
-        <p class="info-text">Use your username and password provided to you by the crisis center.</p>
-        <button type="submit">Log in</button>
-    </div>
-
-	<script src="script.js"></script>
+        <p id="info-text">Use your username and password provided to you by the crisis center.</p>
+        <input type="submit" id="submit-button" value="Login">
+    </form>
 </body>
 </html>

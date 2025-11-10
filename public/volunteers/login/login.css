@@ -16,7 +16,6 @@
     /*formatting*/
     background-color: #51604B;
     display: flex;
-    position: ;
 }
 
 .nav-bar li a {
@@ -67,11 +66,21 @@ body {
     border-radius: 12px;
 }
 
+
+
 .box p {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
     color: white;
+}
+
+#info-text {
+    color:#D6D2B5;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .box input {
@@ -80,12 +89,8 @@ body {
     width: 250px;
 }
 
-/* NOT WORKING */
-.info-text {
-    color:#D6D2B5;
-}
 
-.box button {
+#submit-button {
     font-size: 30px;
     font-weight: bold;
     
@@ -100,7 +105,7 @@ body {
     border-radius: 10px;
 }
 
-.box button:hover {
+#submit-button:hover {
     cursor: pointer;
     
     background-color: #778c6d;
