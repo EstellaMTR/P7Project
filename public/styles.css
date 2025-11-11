@@ -1,0 +1,261 @@
+/* Footer exit row: text and button side by side */
+.footer-exit-row {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+:root {
+	--bg-main: #5a5449;
+	--bg-card: #c4b79d;
+	--bg-pro-login: #8d90a1;
+	--bg-exit: #c87a71;
+	--bg-footer: #d1d1a7;
+	--bg-search: #e8e6e1;
+	--text-highlight: #d1d1a7;
+	--text-dark: #2e2b25;
+	--text-light: #ffffff;
+	--border-chat: #8f9e61;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Lexend', sans-serif;
+	background-color: var(--bg-main);
+	color: var(--text-dark);
+	line-height: 1.6;
+	padding-bottom: 20px; /* Space for footer */
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+main {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	text-align: center;
+}
+
+.hero {
+	margin: 2rem 0 4rem;
+}
+
+.hero h1 {
+	font-size: 6rem;
+	font-weight: 500;
+	color: var(--text-highlight);
+	line-height: 1;
+	margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+	font-size: 1.5rem;
+	color: var(--text-highlight);
+	margin-bottom: 2rem;
+}
+
+.search-container {
+	position: relative;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+#searchInput {
+	width: 100%;
+	padding: 1rem 3.5rem 1rem 1.5rem;
+	border: none;
+	border-radius: 999px;
+	background-color: var(--bg-search);
+	font-size: 1rem;
+	color: var(--text-dark);
+}
+
+#searchInput::placeholder {
+	color: #6c6a66;
+}
+
+#searchInput:focus {
+	outline: 2px solid var(--text-highlight);
+}
+
+.search-icon {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--text-dark);
+	opacity: 0.7;
+	pointer-events: none;
+}
+
+.resources h2 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	color: var(--text-highlight);
+	margin-bottom: 2rem;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+	.card-grid {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+.card {
+	background-color: var(--bg-card);
+	border-radius: 16px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 220px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	cursor: pointer;
+	text-align: left;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card.professional-chat {
+	border: 3px solid var(--border-chat);
+}
+
+.card h3 {
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 0.25rem;
+}
+
+.card .card-subtitle {
+	font-size: 0.9rem;
+	opacity: 0.8;
+}
+
+.card .card-icon {
+	margin: auto 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card .card-icon svg {
+	 width: 48px;
+	 height: 48px;
+}
+
+.card-icon.law-icon {
+	font-size: 3.5rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.card-info {
+	font-size: 0.8rem;
+	font-weight: 500;
+	margin-top: auto;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--bg-footer);
+	color: var(--text-dark);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	font-weight: 500;
+	font-size: 1.5rem;
+}
+
+.footer-exit {
+	/* display: none; */ 
+	position: static;
+	transform: scale(0.6);
+	background-color: var(--bg-exit);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	header {
+		padding: 1rem;
+		align-items: center;
+	}
+
+	main {
+		padding: 0 1rem;
+	}
+
+	.hero h1 {
+		font-size: 4.5rem;
+	}
+
+	.hero .subtitle {
+		font-size: 1.2rem;
+	}
+
+	.resources h2 {
+		font-size: 2rem;
+	}
+    
+	.card-grid {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2.5rem; /* Add space below cards above footer */
+	}
+    
+	.card {
+		padding: 1rem;
+		min-height: 180px;
+	}
+
+	footer {
+		flex-direction: column;
+		text-align: center;
+		padding: 0.5rem;
+		position: static; /* Let footer scroll on mobile */
+	}
+
+	body {
+		padding-bottom: 0;
+	}
+
+	footer .footer-text {
+		padding: 0.25rem 0;
+	}
+    
+	.footer-exit {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	.pro-login {
+		padding: 0.5rem 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.card-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	/* Remove hiding of phone number in footer */
+} 
