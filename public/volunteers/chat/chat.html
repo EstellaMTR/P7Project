@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+
+  <script src="../../reusable/custom-header.js"></script>
+  <title>Chat with a victim</title>
+</head>
+<body>
+
+  <custom-header></custom-header>
+
+
+  <div class="chat-title-text">
+    <h2 class="chat-title">Chat</h2>
+    <h3 class="chat-subtitle">with us for quick help. Below. Here and now. Anonymously.</h3>
+    <div class="volunteer-status">
+        <i class="fa-solid fa-circle" id="statusIcon"></i>
+        <span id="statusText">5 volunteers online</span>
+    </div>
+    <!-- <h5 class="chat-info"><i class="fa-solid fa-circle" id="status-icon"></i>5 professionals are online and ready to answer. Get help now.</h5> -->
+  </div>
+  <div class="main-section-wrapper">
+    <div class="main-section">
+        <div class="chat-container">
+            <div class="messages-container" id="messages"></div>
+            <div class="message-input-container">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </div>
+        
+        <div class="info-about-chat">
+        <div id="info-icon">
+            <i class="fa-solid fa-circle-info"></i>   
+        </div>
+        <ul class="resources">
+            <li class="resources-list-item"><a href="../../resources/resources.html"><i class="fa-solid fa-building-shield list-icon"></i>Find Police</a></li>
+            <li class="resources-list-item"><a href="../../resources/resources.html"><i class="fa-solid fa-user-tie list-icon"></i>Find Lawyer</a></li>
+            <li class="resources-list-item"><a href="../../resources/resources.html"><i class="fa-solid fa-section list-icon"></i>Find Laws</a></li>
+            <li class="resources-list-item"><a href="../../resources/resources.html"><i class="fa-solid fa-circle-question list-icon"></i>Violence?</a></li>
+        </ul>
+        <!-- <button id="police-button">Find police</button>
+        <button id="lawyer-button">Find lawyer</button>
+        <button id="laws-button">Find laws</button>
+        <button id="violence-button">Violence?</button> -->
+        </div>
+    </div>
+
+  <script>
+    const messagesDiv = document.getElementById('messages');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const statusIcon = document.getElementById('statusIcon');
+    const statusText = document.getElementById('statusText');
+    const ws = new WebSocket('ws://localhost:3000');
+  
+    let volunteersAvailable = 5;
+
+    if (volunteersAvailable > 0) {
+    statusIcon.classList.add('volunteer-online');
+    statusIcon.classList.remove('volunteer-offline');
+    statusText.textContent = `${volunteersAvailable} volunteers online`;
+    } else {
+    statusIcon.classList.add('volunteer-offline');
+    statusIcon.classList.remove('volunteer-online');
+    statusText.textContent = `No volunteers online`;
+    }
+
+    ws.addEventListener('message', (event) => {
+      const message = event.data;
+      displayMessage(message);
+    });
+  
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      ws.send(message);
+      displayMessage(message, true);
+      messageInput.value = '';
+    });
+
+    messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const message = messageInput.value;
+        ws.send(message);
+        displayMessage(message, true);
+        messageInput.value = '';
+    }
+    else {
+        return;
+    }
+    });
+
+        function displayMessage(message, isSender = false) {
+      const messageContainer = document.createElement('div');
+      const messageElement = document.createElement('div');
+      messageElement.textContent = message;
+      
+      messageContainer.classList.add('message-container');
+      
+      if (isSender) {
+        messageContainer.classList.add('sender-message-container');
+        messageElement.classList.add('message-bubble', 'sender-message-bubble');
+      } else {
+        messageElement.classList.add('message-bubble');
+      }
+      
+      messageContainer.appendChild(messageElement);
+      messagesDiv.appendChild(messageContainer);
+      
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+  </script>
+</body>
+</html>
