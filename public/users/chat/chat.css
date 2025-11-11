@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 97vh;
-  background-color: #185018;
+  background-color: #49443E;
 }
 
 .messages-container {
@@ -31,7 +31,7 @@
 }
 
 .sender-message-bubble {
-  background-color: #185018;
+  background-color: #49443E;
   color: white;
 }
 
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: rgb(46, 91, 55);
+  background-color: #49443E;
 }
 
 #messageInput {
