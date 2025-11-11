@@ -135,7 +135,7 @@ body {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
 }
 
-.message-input-container {
+.message-input-container {½
   display: flex;
   justify-content: flex-start; /* left-align input + button */
   align-items: center;
