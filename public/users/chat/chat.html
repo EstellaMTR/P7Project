@@ -44,16 +44,16 @@
       messageInput.value = '';
     });
 
-        sendButton.addEventListener('keypress', (e) => {
-        if e.key === 'Enter' {
-            const message = messageInput.value;
-            ws.send(message);
-            displayMessage(message, true);
-            messageInput.value = '';
-        }
-        else {
-            return;
-        }
+    messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const message = messageInput.value;
+        ws.send(message);
+        displayMessage(message, true);
+        messageInput.value = '';
+    }
+    else {
+        return;
+    }
     });
 
         function displayMessage(message, isSender = false) {
