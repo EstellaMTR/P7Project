@@ -116,7 +116,7 @@ template.innerHTML = `
                 <li><a href="/public/resources/resources.html"><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
                 <li><a href="/public/users/info/info.html"><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
                 <li><a href="/public/resources/resources.html"><i class="fa-solid fa-heart"></i><br>Stories</a></li>
-                <li id="login-button" class="pro-login"><a href="/public/users/profile/profile.html"><i class="fa-solid fa-user"></i><br><p>Here as a professional?<br>Login to chat</p></a></li>
+                <li id="login-button" class="pro-login"><a href="/public/volunteers/login/login.html"><i class="fa-solid fa-user"></i><br><p>Here as a professional?<br>Log in to chat</p></a></li>
             </ul>
         </nav> 
     </header>
