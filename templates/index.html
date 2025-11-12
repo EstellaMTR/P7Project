@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Support</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -35,7 +35,7 @@
                     <h3>Chat with a professional</h3>
                     <p class="card-subtitle">Supportive resource</p>
                     <div class="card-icon">
-                       <img src="icons/chat.svg" alt="Chat icon" width="48" height="48">
+                       <img src="{{ url_for('static', filename='/icons/chat.svg') }}" alt="Chat icon" width="48" height="48">
                     </div>
                     <!-- <p class="card-info">5 professionals online right now!</p> -->
                 </a>
