@@ -1,1 +1,0 @@
-Login button is dysfunctional, and I do not know how to fix for now. I want it to change color when hovered, to same darker green color as other list elements. And also to transform smoothly when hovered, as the exit button does. 
