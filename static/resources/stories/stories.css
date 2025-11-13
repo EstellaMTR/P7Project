@@ -26,16 +26,13 @@ h2 {
     font-weight: bold;
 }
 
-p {
+p.text {
     text-align: left;
     color:rgb(0, 0, 0);
     margin-top: 0px;
     border-top-color: #000000;
-}
-
-.text {
     padding-top: 20px;
-    }
+}
 
 .source {
     padding-top: 100px;

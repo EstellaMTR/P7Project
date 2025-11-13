@@ -26,16 +26,13 @@ h1 {
     font-weight: bold;
 }
 
-p {
-    text-align: left;
+p.text {
+    text-align: text;
     color:rgb(0, 0, 0);
     margin-top: 0px;
     border-top-color: #000000;
-}
-
-.text {
     padding-top: 20px;
-    }
+}
 
 .header {
     text-align: left;
