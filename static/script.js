@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Search Bar Functionality ---
     const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.querySelector('.search-icon')
 
     if (searchInput) {
         searchInput.addEventListener('keydown', (event) => {
@@ -33,6 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Search functionality is not implemented yet.');
                 // In a real application, you would trigger the search here.
             }
+        });
+    }
+
+    if (searchIcon) {
+        searchIcon.addEventListener('click', (event) => {
+            event.preventDefault();
+            alert('Search functionality is not implemented yet.');
         });
     }
     
