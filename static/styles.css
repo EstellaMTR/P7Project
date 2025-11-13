@@ -28,7 +28,7 @@ body {
 	background-color: var(--bg-main);
 	color: var(--text-dark);
 	line-height: 1.6;
-	padding-bottom: 20px; /* Space for footer */
+	padding-bottom: 400px; /* Space for footer */
 }
 
 a {
@@ -43,6 +43,7 @@ main {
 	padding: 0 2rem;
 	text-align: center;
 }
+
 
 .hero {
 	margin: 2rem 0 4rem;
