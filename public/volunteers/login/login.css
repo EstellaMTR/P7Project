@@ -46,6 +46,7 @@
     color: #D6D2B5;
     text-align: center;
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 
@@ -56,17 +57,13 @@ body {
 
 .box {
     background-color: #51604B;
-    
     height: 300px;
     width: 300px;
     text-align: left;
-    margin-left: 38%;
-    margin-top: 10px;
+    margin: auto;
     padding-top: 10px;
     border-radius: 12px;
 }
-
-
 
 .box p {
     margin-top: 10px;
