@@ -1,4 +1,4 @@
-.resourcelist {
+.articles {
     background-color: #C0A989;
     height: auto;
     width: 1000px;
@@ -16,7 +16,7 @@ h1 {
     font-weight:lighter;
 }
 
-#title {
+h2 {
     text-align: left;
     color:rgb(0, 0, 0);
     margin-top: 10px;
@@ -37,15 +37,7 @@ p {
     padding-top: 20px;
     }
 
-.header {
-    text-align: left;
-    color:rgb(0, 0, 0);
-    margin-top: 25px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .source {
-    padding-top: 25px;
+    padding-top: 100px;
     color: rgb(133, 108, 84);
     }
