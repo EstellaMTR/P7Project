@@ -16,7 +16,15 @@ def login():
 
 @app.route('/resources')
 def resources():
-    return(render_template('/resources.html'))
+    return(render_template('/resources/resources.html'))
+
+@app.route('/stories')
+def stories():
+    return(render_template('/resources/stories.html'))
+
+@app.route('/articles')
+def articles():
+    return(render_template('/resources/articles.html'))
 
 @app.route('/info')
 def info():
