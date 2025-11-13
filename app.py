@@ -10,5 +10,25 @@ def home():
 def chat():
     return(render_template('/users/chat/chat.html'))
 
+@app.route('/login')
+def login():
+    return(render_template('/volunteers/login/login.html'))
+
+@app.route('/resources')
+def resources():
+    return(render_template('/resources.html'))
+
+@app.route('/info')
+def info():
+    return(render_template('/users/info/info.html'))
+
+@app.route('/volunteer-chat')
+def volunteerChat():
+    return(render_template('/volunteers/chat/chat.html'))
+
+@app.route('/waiting')
+def waiting():
+    return(render_template('/volunteers/waiting/waiting.html'))
+
 if __name__ == '__main__':
     app.run(debug=False)
