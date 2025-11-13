@@ -114,8 +114,8 @@ template.innerHTML = `
                 <li><a href='/public/index.html'><i class="fa-solid fa-house"></i><br>Home</a></li>
                 <li><a href='/public/users/chat/chat.html'><i class="fa-solid fa-comments"></i><br>Chat</a></li>
                 <li><a href="/public/resources/resources.html"><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
-                <li><a href="/public/users/info/info.html"><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
-                <li><a href="/public/resources/resources.html"><i class="fa-solid fa-heart"></i><br>Stories</a></li>
+                <li><a href="/public/articles/articles.html"><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
+                <li><a href="/public/stories/stories.html"><i class="fa-solid fa-heart"></i><br>Stories</a></li>
                 <li id="login-button" class="pro-login"><a href="/public/volunteers/login/login.html"><i class="fa-solid fa-user"></i><br><p>Here as a professional?<br>Log in to chat</p></a></li>
             </ul>
         </nav> 

@@ -1,4 +1,4 @@
-.resources {
+.articles {
     background-color: #C0A989;
     height: auto;
     width: 1000px;
@@ -13,10 +13,10 @@ h1 {
     text-align: left;
     font-size: 20px;
     color:rgb(0, 0, 0);
-    font-weight:lighter;
+    font-weight: lighter;
 }
 
-#title {
+h2 {
     text-align: left;
     color:rgb(0, 0, 0);
     margin-top: 10px;
@@ -26,17 +26,6 @@ h1 {
     font-weight: bold;
 }
 
-p {
-    text-align: left;
-    color:rgb(0, 0, 0);
-    margin-top: 0px;
-    border-top-color: #000000;
-}
-
-.text {
-    padding-top: 20px;
-    }
-
 .header {
     text-align: left;
     color:rgb(0, 0, 0);
@@ -44,7 +33,18 @@ p {
     font-weight: bold;
 }
 
+p {
+    text-align: left;
+    color:rgb(0, 0, 0);
+    margin-top: 2px;
+    border-top-color: #000000;
+}
+
+.text {
+    padding-top: 20px;
+    }
+
 .source {
-    padding-top: 25px;
+    padding-top: 100px;
     color: rgb(133, 108, 84);
     }
