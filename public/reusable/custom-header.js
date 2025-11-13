@@ -26,7 +26,7 @@ template.innerHTML = `
             text-align: center;
         }
 
-        .nav-bar li a:hover {
+        //.nav-bar li a:hover {
             background-color: #3A4237;
         }
 
@@ -74,7 +74,7 @@ template.innerHTML = `
 
         .pro-login {
             background-color: #C3BC85;
-            color: #51604B;
+            color: var(--text-dark);
             // padding: 0.75rem 1.5rem; 
             border-radius: 0px 0px 0px 16px;
             text-align: center;
@@ -84,12 +84,15 @@ template.innerHTML = `
         #login-button {
            position: absolute;
             right: 0;
+            color: var(--text-dark); 
             font-weight: 500;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
   
-        //#login-button:hover{
+        #login-button:hover{
             background-color: #3A4237;
             border-radius: 0px 0px 0px 16px;
+            transform: scale(1.1);
         }
 
         .pro-login p {
