@@ -1,4 +1,4 @@
-.resources {
+.resourcelist {
     background-color: #C0A989;
     height: auto;
     width: 1000px;
@@ -42,6 +42,7 @@ p {
     color:rgb(0, 0, 0);
     margin-top: 25px;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .source {
