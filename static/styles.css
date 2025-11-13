@@ -5,7 +5,7 @@
 	gap: 0.5rem;
 }
 :root {
-	--bg-main: #5a5449;
+	--bg-main: #49443E;
 	--bg-card: #c4b79d;
 	--bg-pro-login: #8d90a1;
 	--bg-exit: #c87a71;
@@ -178,14 +178,15 @@ footer {
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	height: 3rem;
 	background-color: var(--bg-footer);
 	color: var(--text-dark);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 0.75rem 1rem;
+	/*padding: 0.7rem*/
 	font-weight: 500;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 .footer-exit {

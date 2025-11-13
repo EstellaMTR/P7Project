@@ -1,0 +1,50 @@
+.articles {
+    background-color: #C0A989;
+    height: auto;
+    width: 1000px;
+    text-align: left;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 12px;
+    padding: 5%;
+}
+
+h1 {
+    text-align: left;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    font-weight: lighter;
+}
+
+h2 {
+    text-align: left;
+    color:rgb(0, 0, 0);
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-style: solid;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.header {
+    text-align: left;
+    color:rgb(0, 0, 0);
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+p {
+    text-align: left;
+    color:rgb(0, 0, 0);
+    margin-top: 2px;
+    border-top-color: #000000;
+}
+
+.text {
+    padding-top: 20px;
+    }
+
+.source {
+    padding-top: 100px;
+    color: rgb(133, 108, 84);
+    }
