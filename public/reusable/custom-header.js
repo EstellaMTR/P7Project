@@ -56,7 +56,7 @@ template.innerHTML = `
             background-color: var(--bg-exit);
             color: var(--text-dark);
             border: none;
-            border-radius: 12px;
+            border-radius: 0px 0px 12px;
             width: 80px;
             height: 80px;
             font-size: 2rem;
@@ -73,22 +73,23 @@ template.innerHTML = `
         }
 
         .pro-login {
-            background-color: var(--bg-pro-login);
-            color: var(--text-light);
+            background-color: #C3BC85;
+            color: #51604B;
             // padding: 0.75rem 1.5rem; 
-            border-radius: 16px;
+            border-radius: 0px 0px 0px 16px;
             text-align: center;
+            height: 80px;
         }
 
         #login-button {
-            position: absolute;
+           position: absolute;
             right: 0;
             font-weight: 500;
         }
-
-        #login-button :hover {
-            border-radius: 16px;
-            background-color: #3c4055ff;
+  
+        //#login-button:hover{
+            background-color: #3A4237;
+            border-radius: 0px 0px 0px 16px;
         }
 
         .pro-login p {
@@ -116,7 +117,7 @@ template.innerHTML = `
                 <li><a href="/public/resources/resources.html"><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
                 <li><a href="/public/users/info/info.html"><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
                 <li><a href="/public/resources/resources.html"><i class="fa-solid fa-heart"></i><br>Stories</a></li>
-                <li id="login-button" class="pro-login"><a href="/public/volunteers/login/login.html"><i class="fa-solid fa-user"></i><br><p>Here as a professional?<br>Log in to chat</p></a></li>
+                <li id="login-button" class="pro-login"><a href="/public/volunteers/login/login.html"><i class="fa-solid fa-user"></i><br><p>Professional<br>Login</p></a></li>
             </ul>
         </nav> 
     </header>
