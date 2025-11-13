@@ -28,7 +28,7 @@ body {
 	background-color: var(--bg-main);
 	color: var(--text-dark);
 	line-height: 1.6;
-	padding-bottom: 400px; /* Space for footer */
+	padding-bottom: 50px; /* Space for footer */
 }
 
 a {
@@ -60,7 +60,7 @@ main {
 .hero .subtitle {
 	font-size: 1.5rem;
 	color: var(--text-highlight);
-	margin-bottom: 2rem;
+	margin-bottom: 25px;
 }
 
 .search-container {
@@ -94,7 +94,14 @@ main {
 	transform: translateY(-50%);
 	color: var(--text-dark);
 	opacity: 0.7;
-	pointer-events: none;
+	margin-top: 5px;
+	transition: opacity 0.2s ease;
+}
+
+.search-icon:hover {
+	cursor: pointer;
+	opacity: 1;
+	
 }
 
 .resources h2 {
@@ -102,6 +109,7 @@ main {
 	font-weight: 500;
 	color: var(--text-highlight);
 	margin-bottom: 2rem;
+	margin-top: -40px;
 }
 
 .card-grid {
@@ -187,13 +195,6 @@ footer {
 	/*padding: 0.7rem*/
 	font-weight: 500;
 	font-size: 1rem;
-}
-
-.footer-exit {
-	/* display: none; */ 
-	position: static;
-	transform: scale(0.6);
-	background-color: var(--bg-exit);
 }
 
 /* Responsive Design */
