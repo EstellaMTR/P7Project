@@ -18,9 +18,17 @@ def login():
 def resources():
     return(render_template('/resources/resources.html'))
 
+@app.route('/storyOverview')
+def storyOverview():
+    return(render_template('/resources/storyOverview.html'))
+
 @app.route('/stories')
 def stories():
     return(render_template('/resources/stories.html'))
+
+@app.route('/articleOverview')
+def articleOverview():
+    return(render_template('/resources/articleOverview.html'))
 
 @app.route('/articles')
 def articles():

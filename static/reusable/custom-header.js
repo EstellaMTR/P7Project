@@ -122,8 +122,8 @@ template.innerHTML = `
                 <li class="nav-button"><a href='/'><i class="fa-solid fa-house"></i><br>Home</a></li>
                 <li class="nav-button"><a href='/chat'><i class="fa-solid fa-comments"></i><br>Chat</a></li>
                 <li class="nav-button"><a href='/resources'><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
-                <li class="nav-button"><a href='/articles'><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
-                <li class="nav-button"><a href='/stories'><i class="fa-solid fa-heart"></i><br>Stories</a></li>
+                <li class="nav-button"><a href='/articleOverview'><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
+                <li class="nav-button"><a href='/storyOverview'><i class="fa-solid fa-heart"></i><br>Stories</a></li>
                 <li id="login-button" class="pro-login"><a href='/login'><i class="fa-solid fa-user"></i><br><p>Professional<br>Login</p></a></li>
             </ul>
         </nav> 

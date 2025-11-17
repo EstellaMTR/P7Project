@@ -1,0 +1,81 @@
+.articleoverview {
+    height: auto;
+    width: 1000px;
+    text-align: left;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 12px;
+    padding: 5%;
+}
+
+.articleoverview h2 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	color: var(--text-highlight);
+	margin-bottom: 2rem;
+}
+
+.subtitle {
+	font-size: 0.9rem;
+	opacity: 0.8;
+	padding: 0.5rem 0;
+}
+
+/* For more columns */
+.cardoverview-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+	.cardoverview-grid {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+.cardoverview {
+	background-color: var(--bg-card);
+	border-radius: 16px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	min-height: 220px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	cursor: pointer;
+	text-align: left;
+}
+
+.cardoverview:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.cardoverview h3 {
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    header {
+		padding: 1rem;
+		align-items: center;
+	}
+
+	main {
+		padding: 0 1rem;
+	}
+    .cardoverview-grid {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2.5rem; /* Add space below cards above footer */
+	}
+
+	.cardoweverview {
+		padding: 1rem;
+		min-height: 180px;
+	}
+}
