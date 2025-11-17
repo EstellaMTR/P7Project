@@ -59,13 +59,17 @@ template.innerHTML = `
             border-radius: 0px 0px 12px;
             width: 80px;
             height: 80px;
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 300;
             line-height: 48px;
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s ease, background-color 0.2s ease;
         }
+        
+        #exit-button {
+            color: white;}
+
 
         .fast-exit:hover {
             transform: scale(1.1);
@@ -114,13 +118,13 @@ template.innerHTML = `
     <header>
         <nav>
             <ul class="nav-bar">
-                <button class="fast-exit" id="exit-button" aria-label="Fast Exit">x</button>
-                <li class="nav-button"><a href='/public/index.html'><i class="fa-solid fa-house"></i><br>Home</a></li>
-                <li class="nav-button"><a href='/public/users/chat/chat.html'><i class="fa-solid fa-comments"></i><br>Chat</a></li>
-                <li class="nav-button"><a href="/public/resources/resources.html"><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
-                <li class="nav-button"><a href="/public/articles/articles.html"><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
-                <li class="nav-button"><a href="/public/stories/stories.html"><i class="fa-solid fa-heart"></i><br>Stories</a></li>
-                <li id="login-button" class="pro-login"><a href="/public/volunteers/login/login.html"><i class="fa-solid fa-user"></i><br><p>Professional<br>Login</p></a></li>
+                <button class="fast-exit" id="exit-button" aria-label="Fast Exit"><i class="fa-solid fa-xmark"></i></button>
+                <li class="nav-button"><a href='/'><i class="fa-solid fa-house"></i><br>Home</a></li>
+                <li class="nav-button"><a href='/chat'><i class="fa-solid fa-comments"></i><br>Chat</a></li>
+                <li class="nav-button"><a href='/resources'><i class="fa-solid fa-sitemap"></i><br>Resources</a></li>
+                <li class="nav-button"><a href='/articles'><i class="fa-solid fa-lightbulb"></i><br>Articles</a></li>
+                <li class="nav-button"><a href='/stories'><i class="fa-solid fa-heart"></i><br>Stories</a></li>
+                <li id="login-button" class="pro-login"><a href='/login'><i class="fa-solid fa-user"></i><br><p>Professional<br>Login</p></a></li>
             </ul>
         </nav> 
     </header>
