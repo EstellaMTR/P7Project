@@ -1,6 +1,11 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect
 
 app = Flask(__name__)
+
+@app.after_request
+def add_headers(response):
+    response.headers['Cache-Control'] = 'no-store'
+    return response
 
 @app.route('/')
 def home():

@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- Card Click Alert (for demonstration) ---
-    const resourceCards = document.querySelectorAll('.card');
+    // const resourceCards = document.querySelectorAll('.card');
     
-    resourceCards.forEach(card => {
-        card.addEventListener('click', (event) => {
-            event.preventDefault();
-            const cardTitle = card.querySelector('h3').textContent;
-            alert(`You clicked on: "${cardTitle}".\nThis would navigate to the resource page.`);
-        });
-    });
+    // resourceCards.forEach(card => {
+    //     card.addEventListener('click', (event) => {
+    //         event.preventDefault();
+    //         const cardTitle = card.querySelector('h3').textContent;
+    //         alert(`You clicked on: "${cardTitle}".\nThis would navigate to the resource page.`);
+    //     });
+    // });
 
 });
