@@ -5,30 +5,6 @@
     padding: 0;
 }
 
-/* NAVIGATION BAR */
-
-.nav-bar {
-    /* Remove bullets, margin and padding from list element. Source: W3 Schools */
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
-    /*formatting*/
-    background-color: #51604B;
-    display: flex;
-}
-
-.nav-bar li a {
-    display: block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.nav-bar li a:hover {
-    background-color: #3A4237;
-}
-
 
 /* Log in title text */
 .title {
