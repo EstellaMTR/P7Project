@@ -11,7 +11,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
 
-    <script src="/public/reusable/custom-header.js"></script>
+    <script src="/static/reusable/custom-header.js"></script>
 </head>
 <body>
     <custom-header></custom-header>
@@ -44,7 +44,7 @@
                     <h3>What classifies violence?</h3>
                     <p class="card-subtitle">Article</p>
                     <div class="card-icon">
-                        <img src="icons/lightbulb.svg" alt="Lightbulb icon" width="48" height="48">
+                        <img src="{{ url_for('static', filename='icons/lightbulb.svg') }}" alt="Lightbulb icon" width="48" height="48">
                     </div>                        
                 </a>
 
@@ -52,7 +52,7 @@
                     <h3>What is psychological violence?</h3>
                     <p class="card-subtitle">Article</p>
                     <div class="card-icon">
-                       <img src="icons/head.svg" alt="Head icon" width="48" height="48">
+                       <img src="{{ url_for('static', filename='icons/head.svg') }}" alt="Head icon" width="48" height="48">
                     </div>
                 </a>
 
@@ -60,7 +60,7 @@
                     <h3>Laws about violence</h3>
                     <p class="card-subtitle">Article</p>
                     <div class="card-icon">
-                        <img src="icons/law.svg" alt="Law icon" width="48" height="48">
+                        <img src="{{ url_for('static', filename='icons/law.svg') }}" alt="Law icon" width="48" height="48">
                     </div>
                 </a>
 
@@ -68,7 +68,7 @@
                     <h3>How Karen broke free from partner violence</h3>
                     <p class="card-subtitle">Story</p>
                     <div class="card-icon">
-                        <img src="icons/hands.svg" alt="Hands icon" width="48" height="48">
+                        <img src="{{ url_for('static', filename='icons/hands.svg') }}" alt="Hands icon" width="48" height="48">
                     </div>
                 </a>
             </div>
@@ -84,6 +84,6 @@
 		<span class="footer-text">This page does not save anything about you.</span>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../static/script.js"></script>
 </body>
 </html>

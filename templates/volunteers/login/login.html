@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="Login" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../../../../static/styles.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../../../../../static/volunteers/login/login.css') }}">
+     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script defer src="../../../static/volunteers/login/login.js"></script>
+    <script src="../../../static/reusable/custom-header.js"></script>
+</head>
+
+<custom-header></custom-header>
+
+
+<body>
+    <p class="title">Log in</p>
+    <p class="subtitle">as a professional</p>
+
+    <form action=login.js class="box" id="login-form">
+        <p>Username</p>
+        <input type="text" name="username" id="uname">
+        <p>Password</p>
+        <input type="password" name="password" id="pwd">
+
+        <p id="info-text">Use your username and password provided to you by the crisis center.</p>
+        <input type="submit" id="submit-button" value="Log in">
+    </form>
+</body>
+</html>
