@@ -13,7 +13,7 @@ h1 {
     text-align: left;
     font-size: 20px;
     color:rgb(0, 0, 0);
-    font-weight:lighter;
+    font-weight: lighter;
 }
 
 h2 {
@@ -26,16 +26,20 @@ h2 {
     font-weight: bold;
 }
 
-p {
+.header {
     text-align: left;
     color:rgb(0, 0, 0);
-    margin-top: 0px;
-    border-top-color: #000000;
+    margin-top: 25px;
+    font-weight: bold;
 }
 
-.text {
+p.text {
+    text-align: left;
+    color:rgb(0, 0, 0);
+    margin-top: 2px;
+    border-top-color: #000000;
     padding-top: 20px;
-    }
+}
 
 .source {
     padding-top: 100px;

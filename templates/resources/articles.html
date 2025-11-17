@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="articles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../../../static/resources/articles/articles.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    <script src="/public/reusable/custom-header.js"></script>
-    <script defer src="articles.js"></script>
+    <script src="../../../static/reusable/custom-header.js"></script>
+    <script defer src="../../static/script.js"></script>
 </head>
 
 <body>
