@@ -1,5 +1,5 @@
 .resourcelist {
-    background-color: #C0A989;
+    background-color: var(--bg-card);
     height: auto;
     width: 1000px;
     text-align: left;
