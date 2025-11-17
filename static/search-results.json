@@ -1,0 +1,33 @@
+{
+    "search-results": [
+        {
+            "page": "Maya's story",
+            "link": "stories.html",
+            "keywords": [
+                "domestic abuse survival",
+                "emotional abuse recovery",
+                "escaping toxic relationships",
+                "reclaiming self-worth",
+                "healing after trauma",
+                "leaving abusive partner",
+                "empowerment journey",
+                "trauma healing story",
+                "survivor resilience",
+                "finding safety and freedom"
+                        ]
+        },
+        {
+            "page": "What is violence?",
+            "link": "articles.html",
+            "keywords": [
+                "physical violence",
+                "psychological violence",
+                "digital violence",
+                "sexual violence",
+                "rape",
+                "stalking",
+                "economic violence"
+            ]
+        }
+    ]
+}
