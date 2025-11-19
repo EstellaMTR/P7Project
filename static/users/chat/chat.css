@@ -5,6 +5,7 @@
     gap: 20px;
     width: 80%;
     margin-left: 40px;
+    margin-top: 20px;
 }
 
 .main-section {
@@ -17,13 +18,16 @@
 .chat-container {
     flex: 2;             
     min-width: 300px;
+    border-radius: 12px;
 }
 
 .info-about-chat {
     flex: 1;                 
     min-width: 200px;
     background-color: #C3BC85;
-    padding: 20px;
+    padding: 20px;  
+    border-radius: 12px;
+    padding-bottom: 30px;
 }
 
 #info-icon{
@@ -45,6 +49,7 @@
   width: 60%;       
   margin-left: 40px;
   color: rgb(214,210,181);   
+  margin-top: 20px;
 }
 
  .chat-container {
@@ -77,6 +82,7 @@
 .messages-container {
   flex-grow: 1;
   overflow-y: auto;
+  padding-right: 30px;
 }
 
 .message-container {

@@ -15,6 +15,7 @@
 	--text-dark: #2e2b25;
 	--text-light: #ffffff;
 	--border-chat: #8f9e61;
+	--border-border-chat: #adba85;
 }
 
 * {
@@ -143,7 +144,8 @@ main {
 }
 
 .card.professional-chat {
-	border: 3px solid var(--border-chat);
+	background-color: var(--border-chat);
+	min-height: 220px;
 }
 
 .card h3 {
