@@ -82,6 +82,7 @@
 .messages-container {
   flex-grow: 1;
   overflow-y: auto;
+  margin: 10px;
   padding-right: 30px;
 }
 
