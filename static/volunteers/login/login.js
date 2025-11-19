@@ -13,7 +13,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
 
     if (username === "miscoolkat" && password === "missekat") {
-        location.href = "/public/volunteers/chat/chat.html";
+        location.href = "/volunteer-chat";
     } else {
         alert("Wrong username or password. Please try again.");
         location.reload();
