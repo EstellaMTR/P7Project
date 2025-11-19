@@ -21,6 +21,7 @@ body {
 .chat-container {
     flex: 2;             
     min-width: 300px;
+    border-radius: 12px;
 }
 
 .info-about-chat {
@@ -81,6 +82,7 @@ body {
 .messages-container {
   flex-grow: 1;
   overflow-y: auto;
+  padding-right: 30px;
 }
 
 .message-container {
