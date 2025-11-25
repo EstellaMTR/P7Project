@@ -29,7 +29,7 @@ body {
 	background-color: var(--bg-main);
 	color: var(--text-dark);
 	line-height: 1.6;
-	padding-bottom: 200px; /* Space for footer */
+	padding-bottom: 50px; /* Space for footer */
 }
 
 a {
