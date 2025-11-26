@@ -12,7 +12,7 @@
   width: 95%;
   margin-left: 40px;
   margin-top: 20px;
-  min-height: calc(100vh - 50px);
+  /* min-height: calc(100vh - 50px); */
 }
 
 .main-section {
