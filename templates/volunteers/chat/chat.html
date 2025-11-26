@@ -12,7 +12,7 @@
   />
 
   <script src="../../../static/reusable/custom-header.js"></script>
-  <title>Chat with a victim</title>
+  <title>Volunteer chat</title>
 </head>
 <body>
 
@@ -21,12 +21,12 @@
 
   <div class="chat-title-text">
     <h2 class="chat-title">Chat</h2>
-    <h3 class="chat-subtitle">with us for quick help. Below. Here and now. Anonymously.</h3>
-    <div class="volunteer-status">
+    <h3 class="chat-subtitle">with women who are seeking help and support.</h3>
+    <!--<div class="volunteer-status">
         <i class="fa-solid fa-circle" id="statusIcon"></i>
-        <span id="statusText">5 volunteers online</span>
+        <span id="statusText">This chat is online</span>-->
     </div>
-    <!-- <h5 class="chat-info"><i class="fa-solid fa-circle" id="status-icon"></i>5 professionals are online and ready to answer. Get help now.</h5> -->
+    
   </div>
   <div class="main-section-wrapper">
     <div class="main-section">
@@ -60,17 +60,18 @@
     const statusText = document.getElementById('statusText');
     const ws = new WebSocket('ws://localhost:3000');
   
-    let volunteersAvailable = 5;
+    
+    //let volunteersAvailable = 5;
 
-    if (volunteersAvailable > 0) {
-    statusIcon.classList.add('volunteer-online');
-    statusIcon.classList.remove('volunteer-offline');
-    statusText.textContent = `${volunteersAvailable} volunteers online`;
-    } else {
-    statusIcon.classList.add('volunteer-offline');
-    statusIcon.classList.remove('volunteer-online');
-    statusText.textContent = `No volunteers online`;
-    }
+    //if (volunteersAvailable > 0) {
+    //statusIcon.classList.add('volunteer-online');
+    //statusIcon.classList.remove('volunteer-offline');
+    //statusText.textContent = `${volunteersAvailable} volunteers online`;
+    //} else {
+    //statusIcon.classList.add('volunteer-offline');
+    //statusIcon.classList.remove('volunteer-online');
+    //statusText.textContent = `No volunteers online`;
+    //}
 
     ws.addEventListener('message', (event) => {
       const message = event.data;
