@@ -68,13 +68,11 @@ def waiting():
 
 @app.route('/active_sessions')
 def get_active_sessions():
-    """Return a list of currently active sessions that do not yet have a volunteer."""
-    available = [
-        {"session_id": sid, "user_id": details["user_id"]}
-        for sid, details in chat_sessions.items()
-        if details["volunteer_id"] is None and 
-        details["expires_at"] > datetime.now()  # Also check not expired
-    ]
+    now = datetime.now()
+    available = []
+    for sid, details in chat_sessions.items():
+        if details.get("volunteer_id") is None and details.get("expires_at") and details["expires_at"] > now:
+            available.append({"session_id": sid, "user_id": details.get("user_id")})
     return jsonify(available)
 
 
@@ -82,73 +80,67 @@ def get_active_sessions():
 
 @socketio.on("user_connect")
 def handle_user_connect(data):
-    session_id = str(uuid.uuid4())
-
+    session_id = uuid.uuid4().hex
+    user_id = data.get("user_id", "anon")
+    now = datetime.now()
     chat_sessions[session_id] = {
-        'user_id': data['user_id'],
-        'volunteer_id': None,
-        'created_at': datetime.now(),
-        'expires_at': datetime.now() + timedelta(minutes=30)
+        "user_id": user_id,
+        "volunteer_id": None,
+        "created_at": now,
+        "expires_at": now + timedelta(minutes=30)
     }
     chat_messages[session_id] = []
-
-    join_room(session_id)   # ⬅ IMPORTANT FIX
-
-    emit("session_created", {"session_id": session_id})
-    print("Anonymous user started session:", session_id)
+    join_room(session_id)
+    emit("session_created", {"session_id": session_id}, room=request.sid)
+    print(f"[socket] user_connect -> created session {session_id} (socket {request.sid})")
 
 
 @socketio.on("user_message")
 def handle_user_message(data):
-    session_id = data['session_id']
-
-    message = {
-        'sender': 'user',
-        'text': data['text'],
-        'timestamp': datetime.now().isoformat()
-    }
-
-    chat_messages[session_id].append(message)
-
-    # Send to volunteer only, NOT back to user
+    session_id = data.get("session_id")
+    text = data.get("text", "")
+    if not session_id:
+        print("[socket] user_message missing session_id", data)
+        return
+    if session_id not in chat_sessions:
+        print("[socket] user_message unknown session", session_id)
+        return
+    message = {"sender": "user", "text": text, "timestamp": datetime.now().isoformat()}
+    chat_messages.setdefault(session_id, []).append(message)
+    # send to volunteers in room but NOT back to the sending user
     emit("new_message", message, room=session_id, skip_sid=request.sid)
-    print("User message in session", session_id, ":", data['text'])
+    print(f"[socket] user_message -> session {session_id}: {text}")
 
 
 @socketio.on("volunteer_connect")
 def handle_volunteer_connect(data):
-    """
-    Volunteer joins a chat session.
-    """
-    session_id = data["session_id"]
-    
-    # Update the session to mark volunteer as connected
-    if session_id in chat_sessions:
-        chat_sessions[session_id]["volunteer_id"] = request.sid
-    
+    session_id = data.get("session_id")
+    if not session_id:
+        print("[socket] volunteer_connect missing session_id", data)
+        return
+    if session_id not in chat_sessions:
+        print("[socket] volunteer_connect unknown session", session_id)
+        return
+    chat_sessions[session_id]["volunteer_id"] = request.sid
     join_room(session_id)
-    print("Volunteer joined session:", session_id)
     emit("volunteer_joined", {"message": "Volunteer has joined the chat."}, room=session_id)
+    print(f"[socket] volunteer_connect -> volunteer {request.sid} joined session {session_id}")
 
-
-@socketio.on('volunteer_message')
+@socketio.on("volunteer_message")
 def handle_volunteer_message(data):
-    session_id = data.get('session_id')
-    message_text = data.get('text')
-    
-    # Store the message
-    message = {
-        'sender': 'volunteer',
-        'text': message_text,
-        'timestamp': datetime.now().isoformat()
-    }
-    
-    if session_id in chat_messages:
-        chat_messages[session_id].append(message)
-    
-    # Send to user only, NOT back to volunteer
-    emit('new_message', message, room=session_id, skip_sid=request.sid)
-    print("Volunteer message in session", session_id, ":", message_text)
+    session_id = data.get("session_id")
+    text = data.get("text", "")
+    if not session_id:
+        print("[socket] volunteer_message missing session_id", data)
+        return
+    if session_id not in chat_sessions:
+        print("[socket] volunteer_message unknown session", session_id)
+        return
+    message = {"sender": "volunteer", "text": text, "timestamp": datetime.now().isoformat()}
+    chat_messages.setdefault(session_id, []).append(message)
+    # send to user in room but do NOT echo back to volunteer
+    emit("new_message", message, room=session_id, skip_sid=request.sid)
+    print(f"[socket] volunteer_message -> session {session_id}: {text}")
 
 
 # CLEANUP OLD MESSAGES PERIODICALLY 
