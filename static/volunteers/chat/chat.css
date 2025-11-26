@@ -168,11 +168,11 @@ body {
 }
 
 #sendButton:hover{
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  background-color:#8ea285;
 }
 
 #sendButton:active {
-  background-color: #3b9aff;
+  background-color: #566850;
 }
 
 ul {
