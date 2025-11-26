@@ -105,7 +105,9 @@ body {
 .messages-container {
   flex-grow: 1;
   overflow-y: auto;
-  width: 100%; /* make full width */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-container {
@@ -113,18 +115,29 @@ body {
   align-items: flex-start;
   margin: 10px;
   flex-direction: row;
-  width: 100%; /* full width */
-  justify-content: flex-end; /* right align */
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .sender-message-container {
   justify-content: flex-end;
 }
 
+.message-bubble {
+  box-sizing: content-box;
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+  background-color: #f8f9fa;
+  padding: 10px 16px;
+  border-radius: 50px;
+  max-width: 60%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
 .sender-message-bubble {
-  background-color: #49443E; /* dark bubble */
+  background-color: #49443E;
   color: #D6D2B5;
-  /* keep the same size and wrapping rules as normal bubble */
   box-sizing: content-box;
   display: inline-block;
   white-space: normal;
@@ -135,7 +148,7 @@ body {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
 }
 
-.message-input-container {½
+.message-input-container {
   display: flex;
   justify-content: flex-start; /* left-align input + button */
   align-items: center;

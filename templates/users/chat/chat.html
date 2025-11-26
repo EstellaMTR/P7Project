@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='../static/styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='../static/users/chat/chat.css') }}">
-   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
 
   <script src="../../../static/reusable/custom-header.js"></script>
+
+  <!-- IMPORTANT: Socket.IO client -->
+  <script src="//cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
   <title>Chat with a volunteer</title>
 </head>
 <body>
 
   <custom-header></custom-header>
-
 
   <div class="chat-title-text">
     <h2 class="chat-title">Chat</h2>
@@ -26,8 +29,8 @@
         <i class="fa-solid fa-circle" id="statusIcon"></i>
         <span id="statusText">5 volunteers online</span>
     </div>
-    <!-- <h5 class="chat-info"><i class="fa-solid fa-circle" id="status-icon"></i>5 professionals are online and ready to answer. Get help now.</h5> -->
   </div>
+
   <div class="main-section-wrapper">
     <div class="main-section">
         <div class="chat-container">
@@ -39,23 +42,26 @@
         </div>
     </div>
         
-        <div class="info-about-chat">
-        <div id="info-icon">
-            <i class="fa-solid fa-circle-info"></i>   
-        </div>
-        <h4>This chat is</h4>
-        <h2>completely anonymous.</h2>
-        <h4>No cookies.<br> No saved data.<br> No traceability.</h4>
-        <p>This chat service connects you with trained volunteers who can provide support and guidance.</p>
-        <br>
-        <br>
-        <h4>Too risky right now?</h4>
-        <h2>Exit in upper left corner</h2>
-        <br>
-        <h4>Easier to call us?</h4>
-        <h2>Call us at <br> 71 77 94 26</h2>
-        </div>
+    <div class="info-about-chat">
+      <div id="info-icon">
+          <i class="fa-solid fa-circle-info"></i>   
+      </div>
+      <h4>This chat is</h4>
+      <h2>completely anonymous.</h2>
+      <h4>No cookies.<br> No saved data.<br> No traceability.</h4>
+      <p>This chat service connects you with trained volunteers who can provide support and guidance.</p>
+      <br><br>
+      <h4>Too risky right now?</h4>
+      <h2>Exit in upper left corner</h2>
+      <br>
+      <h4>Easier to call us?</h4>
+      <h2>Call us at <br> 71 77 94 26</h2>
     </div>
+  </div>
+
+  <!-- ============================= -->
+  <!--        CHAT JAVASCRIPT        -->
+  <!-- ============================= -->
 
   <script>
     const messagesDiv = document.getElementById('messages');
@@ -63,45 +69,61 @@
     const sendButton = document.getElementById('sendButton');
     const statusIcon = document.getElementById('statusIcon');
     const statusText = document.getElementById('statusText');
-    const ws = new WebSocket('ws://localhost:3000');
-  
-    let volunteersAvailable = 5;
 
-    if (volunteersAvailable > 0) {
-    statusIcon.classList.add('volunteer-online');
-    statusIcon.classList.remove('volunteer-offline');
-    statusText.textContent = `${volunteersAvailable} volunteers online`;
-    } else {
-    statusIcon.classList.add('volunteer-offline');
-    statusIcon.classList.remove('volunteer-online');
-    statusText.textContent = `No volunteers online`;
-    }
+    // NEW: Socket.IO WebSocket
+    const socket = io();
 
-    ws.addEventListener('message', (event) => {
-      const message = event.data;
-      displayMessage(message);
-    });
-  
-    sendButton.addEventListener('click', () => {
-      const message = messageInput.value;
-      ws.send(message);
-      displayMessage(message, true);
-      messageInput.value = '';
+    let session_id = null;
+
+    // -------------------------------
+    // 1. Connect user to backend
+    // -------------------------------
+    socket.emit("user_connect", { user_id: "anon" });
+
+    // Receive session ID
+    socket.on("session_created", (data) => {
+        session_id = data.session_id;
+        console.log("Connected with session:", session_id);
     });
 
-    messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        const message = messageInput.value;
-        ws.send(message);
-        displayMessage(message, true);
-        messageInput.value = '';
-    }
-    else {
-        return;
-    }
+    // -------------------------------
+    // 2. Receive messages from server
+    // -------------------------------
+    socket.on("new_message", (data) => {
+        displayMessage(data.text, false);  // message from volunteer
     });
 
-        function displayMessage(message, isSender = false) {
+    // -------------------------------
+    // 3. Send a message
+    // -------------------------------
+    function sendMessage() {
+        const msg = messageInput.value.trim();
+        if (msg === "" || !session_id) return;
+
+        // Send message to backend
+        socket.emit("user_message", {
+            session_id: session_id,
+            text: msg
+        });
+
+        // Display locally
+        displayMessage(msg, true);
+
+        messageInput.value = "";
+    }
+
+    sendButton.addEventListener("click", sendMessage);
+
+    messageInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            sendMessage();
+        }
+    });
+
+    // -------------------------------
+    // 4. Display message in UI
+    // -------------------------------
+    function displayMessage(message, isSender = false) {
       const messageContainer = document.createElement('div');
       const messageElement = document.createElement('div');
       messageElement.textContent = message;
@@ -121,5 +143,6 @@
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
   </script>
+
 </body>
 </html>
