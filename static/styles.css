@@ -15,6 +15,7 @@
 	--text-dark: #2e2b25;
 	--text-light: #ffffff;
 	--border-chat: #8f9e61;
+	--border-border-chat: #adba85;
 }
 
 * {
@@ -28,7 +29,7 @@ body {
 	background-color: var(--bg-main);
 	color: var(--text-dark);
 	line-height: 1.6;
-	padding-bottom: 200px; /* Space for footer */
+	padding-bottom: 50px; /* Space for footer */
 }
 
 a {
@@ -143,7 +144,8 @@ main {
 }
 
 .card.professional-chat {
-	border: 3px solid var(--border-chat);
+	background-color: var(--border-chat);
+	min-height: 220px;
 }
 
 .card h3 {
