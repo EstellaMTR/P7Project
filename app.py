@@ -151,7 +151,7 @@ def cleanup_old_sessions():
 
     for session_id, details in chat_sessions.items():
         # CORRECTED KEY:
-        if now - details["created_at"] > timedelta(hours=24):
+        if now - details["created_at"] > timedelta(hours=2):
             expired.append(session_id)
 
     for s in expired:
