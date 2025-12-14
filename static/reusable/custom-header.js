@@ -36,11 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 text-align: center;
             }
 
-            #login-button {
-                position: absolute;
-                right: 0;
-            }
-
             header {
                 position: sticky;
                 top: 0;
