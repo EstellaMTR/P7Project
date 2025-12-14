@@ -131,32 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.customElements.define("custom-header", CustomHeader);
- // --- Fast Exit Function ---
-    function performFastExit(event) {
-        event.preventDefault();
-        location.replace('https://www.google.com');
-    }
-
-   
-    // In your fast exit function:
+ // --- Fast Exit Function ---   
     function performFastExit(event) {
         event.preventDefault();
 
-        // Replace current history entry with an external site
         window.location.replace('https://www.google.com');
     }
 
-
-    // --- Attach click listener to all fast-exit buttons ---
     const fastExitButtons = document.querySelectorAll('.fast-exit');
     fastExitButtons.forEach(button => {
         button.addEventListener('click', performFastExit);
     });
 
-    // --- Attach ESC key listener ---
     document.addEventListener('keydown', (event) => {
         const active = document.activeElement;
-        if (event.key === 'Escape' && active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
+        if (event.key === 'Escape') {
             performFastExit(event);
         }
     });

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, redirect
+from flask import Flask, jsonify, request, render_template
 from flask_socketio import SocketIO, emit, join_room
 import uuid
 from datetime import datetime, timedelta
@@ -8,19 +8,15 @@ app.config['SECRET_KEY'] = 'secret!'
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-# ...existing code...
-
 chat_sessions = {}
 chat_messages = {}
 
-
-
-# ROUTES:
-# I dont think this function is necessary :)
 @app.after_request
 def add_headers(response):
     response.headers['Cache-Control'] = 'no-store'
     return response
+
+# ROUTES
 
 @app.route('/')
 def home():
@@ -87,7 +83,7 @@ def handle_user_connect(data):
         "user_id": user_id,
         "volunteer_id": None,
         "created_at": now,
-        "expires_at": now + timedelta(minutes=30)
+        "expires_at": now + timedelta(minutes=180)
     }
     chat_messages[session_id] = []
     join_room(session_id)
