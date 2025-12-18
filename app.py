@@ -141,7 +141,7 @@ def handle_volunteer_message(data):
 
 # CLEANUP OLD MESSAGES PERIODICALLY 
 def cleanup_old_sessions():
-    """Delete messages older than 24 hours."""
+    """Delete messages older than 2 hours."""
     now = datetime.now()
     expired = []
 
